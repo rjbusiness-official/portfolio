@@ -2,6 +2,7 @@ import Image from "next/image";
 import ScrollAnimator from "./ScrollAnimator";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const withBasePath = (path: string) => `${basePath}${path}`;
 
 const profile = {
   name: "Rhustom C. De Guzman",
@@ -42,6 +43,7 @@ const projects = [
     result:
       "A web app concept for managing grocery products, stock movement, transactions, and daily operational records.",
     accent: "from-emerald-400 to-teal-300",
+    image: "/project-images/grocery-management-system-realistic.png",
     tags: ["Inventory", "Transactions", "Admin Panel", "Reports"],
     githubUrl: "https://rjbusiness-official.github.io/groceryapp/",
   },
@@ -51,6 +53,7 @@ const projects = [
     result:
       "A system for organizing patient records, appointments, medical transactions, and staff-facing management screens.",
     accent: "from-sky-400 to-indigo-300",
+    image: "/project-images/medical-management-system-realistic.png",
     tags: ["Patient Records", "Appointments", "Roles", "Database"],
     githubUrl: "https://rjbusiness-official.github.io/medicalcenterpro/",
   },
@@ -60,6 +63,7 @@ const projects = [
     result:
       "A CRM-style application for tracking customers, inquiries, follow-ups, sales activity, and business communication.",
     accent: "from-rose-400 to-orange-300",
+    image: "/project-images/crm-system-realistic.png",
     tags: ["Leads", "Follow-ups", "Pipeline", "Dashboard"],
     githubUrl: "https://rjbusiness-official.github.io/crmapp/",
   },
@@ -69,6 +73,7 @@ const projects = [
     result:
       "A customized web application designed to record and monitor students’ time-in and time-out in the library.",
     accent: "from-[#ff874e] to-[#fffa81]",
+    image: "/project-images/smartlib-system-realistic.png",
     tags: ["Custom Workflow", "Library Tools", "Admin UI", "Dashboard"],
     githubUrl: "",
   },
@@ -78,6 +83,7 @@ const projects = [
     result:
       "A customized web application built to fit my friend's business process, daily tasks, and management needs.",
     accent: "from-[#f8d56b] to-[#7ee7d4]",
+    image: "/project-images/custom-web-app-realistic.png",
     tags: ["Custom Workflow", "Business Tools", "Admin UI", "Automation"],
     githubUrl: "https://rjbusiness-official.github.io/customapp/",
   },
@@ -267,25 +273,15 @@ export default function Home() {
             >
               <div className={`h-2 bg-gradient-to-r ${project.accent}`} />
               <div className="p-5">
-                <div className="mb-5 rounded-lg border border-white/10 bg-[#07110f] p-4">
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2">
-                      <span className="h-3 w-3 rounded-full bg-[#ff8a65]" />
-                      <span className="h-3 w-3 rounded-full bg-[#f8d56b]" />
-                      <span className="h-3 w-3 rounded-full bg-[#7ee7d4]" />
-                    </div>
-                    <span className="text-xs font-black uppercase tracking-[0.14em] text-[#93a8a1]">App</span>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="h-6 w-3/4 rounded bg-[#e8f5f1]" />
-                    <div className="h-3 w-full rounded bg-[#263832]" />
-                    <div className="h-3 w-5/6 rounded bg-[#263832]" />
-                    <div className="grid grid-cols-3 gap-2 pt-3">
-                      <div className="h-16 rounded bg-[#16231f] shadow-sm" />
-                      <div className="h-16 rounded bg-[#16231f] shadow-sm" />
-                      <div className="h-16 rounded bg-[#16231f] shadow-sm" />
-                    </div>
-                  </div>
+                <div className="mb-5 overflow-hidden rounded-lg border border-white/10 bg-[#07110f]">
+                  <Image
+                    src={withBasePath(project.image)}
+                    alt={`${project.title} dashboard preview`}
+                    width={1536}
+                    height={1152}
+                    sizes="(min-width: 1280px) 18vw, (min-width: 640px) 45vw, 90vw"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
                 </div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-[#7ee7d4]">{project.category}</p>
                 <h3 className="mt-2 text-2xl font-black text-white">{project.title}</h3>
