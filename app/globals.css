@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: Arial, Helvetica, sans-serif;
+  --color-background: #070d0c;
+  --color-foreground: #eef7f4;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    color-scheme: dark;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-[#7ee7d4] text-[#06110f];
+  }
+}
+
+@layer utilities {
+  [data-scroll-reveal] {
+    --reveal-x: 0;
+    --reveal-y: 4.5rem;
+    --reveal-scale: 0.94;
+
+    opacity: 0;
+    transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale));
+    filter: blur(16px);
+    transition:
+      opacity 950ms ease,
+      transform 950ms cubic-bezier(0.16, 1, 0.3, 1),
+      filter 950ms ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+
+  [data-scroll-reveal="left"] {
+    --reveal-x: -4.5rem;
+    --reveal-y: 1.25rem;
+  }
+
+  [data-scroll-reveal="right"] {
+    --reveal-x: 4.5rem;
+    --reveal-y: 1.25rem;
+  }
+
+  [data-scroll-reveal="fade"] {
+    --reveal-y: 1.75rem;
+    --reveal-scale: 0.96;
+  }
+
+  [data-scroll-reveal].is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+
+  @keyframes scroll-reveal {
+    from {
+      opacity: 0;
+      transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale));
+      filter: blur(16px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    [data-scroll-reveal] {
+      animation: scroll-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 36%;
+      transition: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-scroll-reveal] {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      transition: none;
+    }
+  }
+}
