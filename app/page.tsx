@@ -38,6 +38,16 @@ const services = [
 
 const projects = [
   {
+    title: "CondoStay System",
+    category: "Condo Booking",
+    result:
+      "A simple condo booking website where guests can view available units, check prices, choose dates, and book online.",
+    accent: "from-[#ff874e] to-[#fffa81]",
+    image: "/project-images/condostay-system-realistic.png",
+    tags: ["Custom Workflow", "Admin UI", "Booking", "Guest"],
+    githubUrl: "https://rjbusiness-official.github.io/condostay/",
+  },
+  {
     title: "Grocery Management System",
     category: "Inventory and sales operations",
     result:
@@ -66,16 +76,6 @@ const projects = [
     image: "/project-images/crm-system-realistic.png",
     tags: ["Leads", "Follow-ups", "Pipeline", "Dashboard"],
     githubUrl: "https://rjbusiness-official.github.io/crmapp/",
-  },
-  {
-    title: "CondoStay System",
-    category: "Condo Booking",
-    result:
-      "A simple condo booking website where guests can view available units, check prices, choose dates, and book online.",
-    accent: "from-[#ff874e] to-[#fffa81]",
-    image: "/project-images/condostay-system-realistic.png",
-    tags: ["Custom Workflow", "Admin UI", "Booking", "Guest"],
-    githubUrl: "https://rjbusiness-official.github.io/condostay/",
   },
   {
     title: "Custom Web App",
