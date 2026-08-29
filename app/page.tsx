@@ -68,14 +68,14 @@ const projects = [
     githubUrl: "https://rjbusiness-official.github.io/crmapp/",
   },
   {
-    title: "SmartLib System",
-    category: "Library application",
+    title: "CondoStay System",
+    category: "Condo Booking",
     result:
-      "A customized web application designed to record and monitor students’ time-in and time-out in the library.",
+      "A simple condo booking website where guests can view available units, check prices, choose dates, and book online.",
     accent: "from-[#ff874e] to-[#fffa81]",
-    image: "/project-images/smartlib-system-realistic.png",
-    tags: ["Custom Workflow", "Library Tools", "Admin UI", "Dashboard"],
-    githubUrl: "",
+    image: "/project-images/condostay-system-realistic.png",
+    tags: ["Custom Workflow", "Admin UI", "Booking", "Guest"],
+    githubUrl: "https://rjbusiness-official.github.io/condostay/",
   },
   {
     title: "Custom Web App",
@@ -276,7 +276,7 @@ export default function Home() {
                 <div className="mb-5 overflow-hidden rounded-lg border border-white/10 bg-[#07110f]">
                   <Image
                     src={withBasePath(project.image)}
-                    alt={`${project.title} dashboard preview`}
+                    alt={`${project.title} project preview`}
                     width={1536}
                     height={1152}
                     sizes="(min-width: 1280px) 18vw, (min-width: 640px) 45vw, 90vw"
